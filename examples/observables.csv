@@ -1,0 +1,7 @@
+observable,type,source,confidence,tlp,tags
+8.8.8.8,ipv4,manual,30,TLP:CLEAR,"osint,dns"
+malicious-example.test,domain,osint-feed,80,TLP:AMBER,"phishing,credential-theft"
+https://malicious-example.test/login?utm_source=newsletter,url,osint-feed,85,TLP:AMBER,"phishing"
+275a021bbfb6489e54d471899f7db9d1663fc695ec2fe2a2c4538aabf651fd0f,sha256,malware-sample,90,TLP:GREEN,"malware"
+alerts@example.test,email,manual,40,TLP:CLEAR,"triage"
+
