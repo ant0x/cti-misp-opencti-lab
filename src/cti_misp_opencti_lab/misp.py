@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import json
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 
 from .models import Observable
 
@@ -18,7 +18,7 @@ MISP_TYPE_MAP = {
 
 
 def build_misp_event(observables: list[Observable], *, info: str = "CTI Exchange Lab Export") -> dict:
-    now = datetime.now(UTC).strftime("%Y-%m-%d")
+    now = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     all_tags = sorted({tag for observable in observables for tag in observable.tags})
     return {
         "Event": {
@@ -47,4 +47,3 @@ def _attribute(observable: Observable) -> dict:
         "comment": f"source={observable.source}; confidence={observable.confidence}; tlp={observable.tlp}",
         "Tag": [{"name": tag} for tag in observable.tags],
     }
-
